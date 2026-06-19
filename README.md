@@ -39,11 +39,8 @@ npm install
 Copy the example env file and add your API key:
 
 ```bash
-cp .env.example .env.local
+cp .env.local
 ```
-
-Then edit `.env.local`:
-
 ```
 GEMINI_API_KEY=your_actual_api_key_here
 ```
@@ -68,7 +65,6 @@ resume-ai/
 │   ├── layout.tsx                # Root layout with metadata
 │   └── page.tsx                  # Main UI (upload, analyze, results)
 ├── public/                       # Static assets
-├── .env.example                  # Environment variable template
 ├── next.config.ts                # Next.js configuration
 ├── package.json
 └── tsconfig.json
@@ -83,6 +79,3 @@ Deploy to [Vercel](https://vercel.com) with one click:
 3. Add `GEMINI_API_KEY` as an environment variable
 4. Deploy
 
-## License
-
-MIT
