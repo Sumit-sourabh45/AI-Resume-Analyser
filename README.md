@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume AI Analyzer
+
+An AI-powered resume analysis tool built with Next.js and Google Gemini. Upload your resume and a job description to get an instant match score, strengths, gaps, and actionable rewrite tips.
+
+## Features
+
+- **AI-Powered Analysis** — Uses Google Gemini to compare your resume against any job description
+- **Match Score** — Get a 0–100 compatibility score with visual indicators
+- **Strengths & Gaps** — See what aligns and what's missing
+- **Rewrite Suggestions** — Actionable tips to improve your resume
+- **PDF & Text Support** — Upload a PDF or paste resume text directly
+- **Model Fallback** — Automatically retries with an alternate model if the primary is unavailable
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **AI:** Google Gemini API (`@google/genai`)
+- **PDF Parsing:** pdf-parse v2
+- **Styling:** Inline styles with a dark theme
+- **Language:** TypeScript + JavaScript API routes
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- A [Google Gemini API key](https://aistudio.google.com/apikey)
+
+### Installation
+
+```bash
+git clone https://github.com/Sumit-sourabh45/AI-Resume-Analyser.git
+cd AI-Resume-Analyser
+npm install
+```
+
+### Environment Setup
+
+Copy the example env file and add your API key:
+
+```bash
+cp .env.example .env.local
+```
+
+Then edit `.env.local`:
+
+```
+GEMINI_API_KEY=your_actual_api_key_here
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+resume-ai/
+├── app/
+│   ├── api/
+│   │   ├── analyze/route.js      # Gemini AI analysis endpoint
+│   │   └── parse-pdf/route.js    # PDF text extraction endpoint
+│   ├── globals.css               # Global styles
+│   ├── layout.tsx                # Root layout with metadata
+│   └── page.tsx                  # Main UI (upload, analyze, results)
+├── public/                       # Static assets
+├── .env.example                  # Environment variable template
+├── next.config.ts                # Next.js configuration
+├── package.json
+└── tsconfig.json
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Deploy to [Vercel](https://vercel.com) with one click:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub
+2. Import the repo in Vercel
+3. Add `GEMINI_API_KEY` as an environment variable
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
