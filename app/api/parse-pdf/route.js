@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { extractText } from 'unpdf'
 
 export async function POST(req) {
   try {
@@ -6,12 +7,9 @@ export async function POST(req) {
     const file = formData.get('pdf')
     const arrayBuffer = await file.arrayBuffer()
 
-    // pdf-parse v2 uses a class-based API
-    const { PDFParse } = await import('pdf-parse')
-    const parser = new PDFParse({ data: new Uint8Array(arrayBuffer) })
-    const result = await parser.getText()
+    const { text } = await extractText(new Uint8Array(arrayBuffer), { mergePages: true })
 
-    return NextResponse.json({ text: result.text })
+    return NextResponse.json({ text })
   } catch (err) {
     console.error('PDF parse error:', err)
     return NextResponse.json({ error: 'PDF parsing failed' }, { status: 500 })
