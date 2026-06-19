@@ -1,6 +1,6 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
+import { GoogleGenAI } from '@google/genai'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 
 export async function POST(req) {
   try {
@@ -28,17 +28,29 @@ Job Description:
 ${jobDescription}
     `
 
-    let result;
-    try {
-      const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' })
-      result = await model.generateContent(prompt)
-    } catch (e) {
-      console.warn('Fallback: primary model failed, trying gemma-3-27b-it', e.message);
-      const fallbackModel = genAI.getGenerativeModel({ model: 'gemma-3-27b-it' })
-      result = await fallbackModel.generateContent(prompt)
+    // Try primary model, then fallback to lite model if unavailable
+    const models = ['gemini-3.5-flash', 'gemini-3.1-flash-lite']
+    let response
+    let lastError
+
+    for (const model of models) {
+      try {
+        response = await ai.models.generateContent({
+          model,
+          contents: prompt,
+        })
+        break // success, stop trying
+      } catch (e) {
+        console.warn(`Model ${model} failed:`, e.message)
+        lastError = e
+      }
     }
 
-    const text = result.response.text()
+    if (!response) {
+      throw lastError || new Error('All models failed')
+    }
+
+    const text = response.text
 
     // Clean up any accidental markdown code fences
     const cleaned = text.replace(/```json|```/g, '').trim()

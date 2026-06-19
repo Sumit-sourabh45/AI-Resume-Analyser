@@ -29,18 +29,18 @@ export default function Home() {
       const formData = new FormData()
       formData.append('pdf', file)
       const res = await fetch('/api/parse-pdf', {
-  method: 'POST',
-  body: formData,
-})
+        method: 'POST',
+        body: formData,
+      })
 
-if (!res.ok) {
-  setError('PDF parsing failed (server error). Try pasting your resume as text.')
-  return
-}
+      if (!res.ok) {
+        setError('PDF parsing failed (server error). Try pasting your resume as text.')
+        return
+      }
 
-const data = await res.json()
-if (data.text) setResumeText(data.text)
-else setError('Could not parse PDF. Try pasting your resume as text.')
+      const data = await res.json()
+      if (data.text) setResumeText(data.text)
+      else setError('Could not parse PDF. Try pasting your resume as text.')
     }
   }
 
