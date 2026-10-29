@@ -1,3 +1,26 @@
+:root {
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+
+  --color-accent: #0B7A5F;
+  --color-accent-light: rgba(11, 122, 95, 0.1);
+  --color-text: #0E1F1B;
+  --color-muted: #4F615C;
+  --color-warning: #C2410C;
+  --color-border: #DDE5E2;
+  --color-bg: #F5F7F6;
+  --color-card: #FFFFFF;
+  --color-green: #0B7A5F;
+  --color-amber: #D97706;
+  --color-red: #DC2626;
+  --radius-card: 16px;
+  --max-width: 1160px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-score: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --section-gap: 96px;
+  --section-gap-mobile: 64px;
+  --card-padding: 28px;
+}
 
 * {
   box-sizing: border-box;
@@ -6,8 +29,56 @@
 }
 
 body {
-  background: #0f0f1a;
-  color: #e2e8f0;
-  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+button, input, textarea, select {
+  font-family: var(--font-body);
+  font-size: inherit;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

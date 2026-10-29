@@ -1,0 +1,368 @@
+.analyzerSection {
+  width: 100%;
+  padding: var(--section-gap) 24px;
+  background: var(--color-bg);
+  display: flex;
+  justify-content: center;
+}
+
+.analyzerContainer {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.headerBlock {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.analyzerHeading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 40px;
+  color: var(--color-text);
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+.analyzerSubheading {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Input grid: side by side on desktop, stacked below 800px */
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.inputCard {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+}
+
+.inputCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.inputLabel {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.charCount {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+/* Upload area */
+.uploadArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 14px;
+  background: var(--color-bg);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  min-height: 64px;
+}
+
+.uploadArea:hover,
+.uploadArea:focus-within {
+  border-color: var(--color-accent);
+  background: #FFFFFF;
+}
+
+.uploadFileName {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-accent);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.uploadPlaceholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.uploadDividerText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-muted);
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+/* Resume textarea: at least 220px tall */
+.resumeTextarea {
+  width: 100%;
+  min-height: 220px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.15s ease;
+}
+
+.jobTextarea {
+  width: 100%;
+  min-height: 320px;
+  height: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.15s ease;
+}
+
+.resumeTextarea::placeholder,
+.jobTextarea::placeholder {
+  color: var(--color-muted);
+}
+
+.resumeTextarea:focus,
+.jobTextarea:focus {
+  border-color: var(--color-accent);
+}
+
+/* Error message inline */
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  color: var(--color-red);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.errorBox svg {
+  flex-shrink: 0;
+}
+
+/* Analyze button */
+.analyzeButton {
+  width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+  border: none;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 32px;
+  transition: opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analyzeButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.analyzeButtonLoading {
+  background: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.buttonContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Results section */
+.resultsAnchor {
+  scroll-margin-top: 80px;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 2-column layout on desktop: score card + breakdown on left (420px), keywords + tips on right */
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 1000px) {
+  .resultsGrid {
+    grid-template-columns: 420px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Actions below results */
+.resultsActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.disclaimerNote {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: 1.5px solid var(--color-accent);
+  background: #FFFFFF;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.copyButton:hover {
+  background: var(--color-accent-light);
+}
+
+.resetButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.resetButton:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+/* Responsive constraints */
+@media (max-width: 800px) {
+  .inputGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .analyzerSection {
+    padding: var(--section-gap-mobile) 20px;
+  }
+
+  .analyzerHeading {
+    font-size: 28px;
+  }
+
+  .headerBlock {
+    margin-bottom: 32px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .copyButton,
+  .resetButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

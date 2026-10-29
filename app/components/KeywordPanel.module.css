@@ -1,0 +1,214 @@
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin: 0 0 24px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.countBadge {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.categoryBlock {
+  margin-bottom: 16px;
+}
+
+.categoryBlock:last-child {
+  margin-bottom: 0;
+}
+
+.categoryHeading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-muted);
+  margin: 0 0 10px;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Matched chip */
+.chipMatched {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  background: rgba(11, 122, 95, 0.1);
+  color: var(--color-green);
+  border: 1px solid rgba(11, 122, 95, 0.2);
+}
+
+.checkIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Missing chip wrapper */
+.missingChipWrapper {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.chipMissing {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.15s, border-color 0.15s;
+  border: 1px solid var(--color-border);
+  background: #FAFAFA;
+}
+
+.chipMissing:hover {
+  opacity: 0.9;
+}
+
+.termText {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.importanceSuffix {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.importanceDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Importance: High (Red) */
+.importanceHigh {
+  background: rgba(220, 38, 38, 0.06);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+.importanceHigh .importanceSuffix {
+  color: var(--color-red);
+}
+.importanceHigh .importanceDot {
+  background: var(--color-red);
+}
+
+/* Importance: Medium (Amber) */
+.importanceMedium {
+  background: rgba(217, 119, 6, 0.06);
+  border-color: rgba(217, 119, 6, 0.25);
+}
+.importanceMedium .importanceSuffix {
+  color: var(--color-amber);
+}
+.importanceMedium .importanceDot {
+  background: var(--color-amber);
+}
+
+/* Importance: Low (Grey/Muted) */
+.importanceLow {
+  background: rgba(79, 97, 92, 0.06);
+  border-color: rgba(79, 97, 92, 0.2);
+}
+.importanceLow .importanceSuffix {
+  color: var(--color-muted);
+}
+.importanceLow .importanceDot {
+  background: var(--color-muted);
+}
+
+/* Expandable reason box */
+.reasonDropdown {
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: #FFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.reasonText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.empty {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .chipGroup {
+    gap: 8px;
+  }
+
+  .chipMatched,
+  .chipMissing {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,175 @@
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 1000px) {
+  .skeletonGrid {
+    grid-template-columns: 420px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.leftCol,
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background: var(--color-card, #ffffff);
+  border: 1px solid var(--color-border, #DDE5E2);
+  border-radius: var(--radius-card, 16px);
+  padding: 28px;
+}
+
+/* ── Score card ── */
+.scoreCard {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.lineShort {
+  width: 100px;
+  height: 14px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  margin-top: 16px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.lineLong {
+  width: 220px;
+  height: 12px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  margin-top: 10px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Breakdown card ── */
+.breakdownCard {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.breakdownRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.labelBar {
+  width: 90px;
+  height: 12px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.progressBar {
+  width: 100%;
+  height: 10px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Keyword panel ── */
+.keywordCard {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.keywordSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keywordSectionLabel {
+  width: 120px;
+  height: 12px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  height: 32px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.pillSm {
+  composes: pill;
+  width: 72px;
+}
+
+.pillMd {
+  composes: pill;
+  width: 96px;
+}
+
+.pillLg {
+  composes: pill;
+  width: 120px;
+}
+
+/* ── Tips card ── */
+.tipsCard {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tipItem {
+  background: var(--color-bg, #F5F7F6);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tipLineA {
+  width: 70%;
+  height: 12px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.tipLineB {
+  width: 90%;
+  height: 10px;
+  border-radius: 8px;
+  background: #DDE5E2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
